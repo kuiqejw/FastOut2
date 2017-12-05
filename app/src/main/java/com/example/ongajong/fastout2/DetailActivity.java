@@ -5,10 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -17,7 +15,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.NumberFormat;
-import java.util.Iterator;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -25,7 +22,7 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        final String productId = getIntent().getStringExtra(MainActivity.PRODUCT_ID);
+        final String productId = getIntent().getStringExtra(DisplayEdit.PRODUCT_ID);
         final Product product = DataProvider.productMap.get(productId);
         TextView tv = (TextView) findViewById(R.id.nameText);
         tv.setText(product.getName());
@@ -38,9 +35,9 @@ public class DetailActivity extends AppCompatActivity {
         TextView newpriceText = (TextView) findViewById(R.id.tv_NewPrice);
         final EditText ed_price = (EditText) findViewById(R.id.ed_price);
         Button btn_delete = (Button) findViewById(R.id.delete_btn);
-        btn_delete.setOnClickListener(new View.OnClickListener() {
+        btn_delete.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(android.view.View v) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef  = database.getReference("ProductList");
                     myRef.child(product.getName()).removeValue();
@@ -51,9 +48,9 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
         final Button btn_update = (Button) findViewById(R.id.edit_btn);
-        btn_update.setOnClickListener(new View.OnClickListener(){
+        btn_update.setOnClickListener(new android.view.View.OnClickListener(){
             @Override
-            public void onClick(View v) {
+            public void onClick(android.view.View v) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef  = database.getReference("ProductList");
                 Double newPrice = Double.parseDouble(ed_price.getText().toString());

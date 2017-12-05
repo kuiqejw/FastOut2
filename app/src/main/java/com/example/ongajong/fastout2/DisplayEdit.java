@@ -3,14 +3,12 @@ package com.example.ongajong.fastout2;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class DisplayEdit extends AppCompatActivity {
     private List<Product> products = DataProvider.productList;
     public static final String PRODUCT_ID = "PRODUCT_ID";
 
@@ -29,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+            public void onItemClick(AdapterView<?> parent, android.view.View view, int position, long id) {
+                Intent intent = new Intent(DisplayEdit.this, DetailActivity.class);
                 //create an instance of class and display there
                 Product product = products.get(position);//have the complex product. Could break this down and pass value to all of product
                 //go with simpler approach: pass product Id, primary key and leave it to decide what to di.
@@ -51,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+            public void onItemClick(AdapterView<?> parent, android.view.View view, int position, long id) {
+                Intent intent = new Intent(DisplayEdit.this, DetailActivity.class);
                 //create an instance of class and display there
                 Product product = products.get(position);//have the complex product. Could break this down and pass value to all of product
                 //go with simpler approach: pass product Id, primary key and leave it to decide what to di.

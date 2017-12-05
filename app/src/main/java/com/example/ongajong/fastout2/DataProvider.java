@@ -74,7 +74,7 @@ public class DataProvider {
                 95);
     }
 
-    private static void addProduct(String itemId, String name, double price) {
+    public static void addProduct(String itemId, String name, double price) {
         Product item = new Product(itemId, name, price);
         productList.add(item);
         productMap.put(itemId, item);

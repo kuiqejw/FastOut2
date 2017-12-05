@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ongajong.fastout2">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,19 +11,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".NewMain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".DetailActivity"
-            android:parentActivityName=".MainActivity">
+        <activity android:name=".DisplayEdit"
+            android:parentActivityName=".NewMain">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".NewMain"/>
+        </activity>
+        <activity
+            android:name=".DetailActivity"
+            android:parentActivityName=".DisplayEdit">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DisplayEdit" />
+        </activity>
+        <activity android:name=".AddProduct"
+            android:parentActivityName=".NewMain">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NewMain"/>
         </activity>
     </application>
 
