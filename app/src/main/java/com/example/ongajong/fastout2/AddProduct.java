@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import net.glxn.qrgen.android.QRCode;
 
 import java.util.Random;
@@ -27,13 +30,24 @@ public class AddProduct extends AppCompatActivity {
             public void onClick(View v) {
                 Random r = new Random();
                 int i1 = r.nextInt(200-100)+100;
-                String curr = ed_addname.getText().toString().replaceAll("[^A-Za-z]+", "").toLowerCase();
-                curr += i1;
-                Bitmap myBitmap = QRCode.from(curr).bitmap();
+                String curr = ed_addname.getText().toString();
+                String curr1  = curr.replaceAll("[^A-Za-z]+", "").toLowerCase() + i1;
+                Bitmap myBitmap = QRCode.from(curr1).bitmap();
                 ImageView myImage = (ImageView) findViewById(R.id.qrdisplay);
                 Log.i("Laura", "QR DIsplayed");
                 myImage.setImageBitmap(myBitmap);
-                DataProvider.addProduct(curr, ed_addname.getText().toString(),Double.parseDouble(ed_addprice.toString()));
+
+                Double NewPrice = Double.parseDouble(ed_addprice.getText().toString());
+                Product item = new Product(curr1, curr, NewPrice);
+                Log.i("Laura", "New Conversion to Product done");
+                DataProvider.productList.add(item);
+                DataProvider.productMap.put(curr1, item);
+                Log.i("Laura", "Added to internal List");
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef  = database.getReference("ProductList");
+                myRef.child(curr).child("price").setValue(NewPrice);
+                myRef.child(curr).child("itemId").setValue(curr1);
+
             }
         });
     }
