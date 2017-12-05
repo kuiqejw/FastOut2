@@ -33,37 +33,26 @@ public class DetailActivity extends AppCompatActivity {
 
         TextView descView = (TextView) findViewById(R.id.descriptionText);
         descView.setText(product.getDescription());
-        //todo remove image from this if firebase implemented and put in QR CODE if Want
-        ImageView iv = (ImageView) findViewById(R.id.imageView);
-        try {
-            Bitmap bitmap = getBitmapFromAsset(product.getProductId());
-            iv.setImageBitmap(bitmap);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Button EditBtn = (Button) findViewById(R.id.button);
-        EditBtn.setOnClickListener(new View.OnClickListener(){
-
+        Button btn_delete = (Button) findViewById(R.id.delete_btn);
+        btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //todo Edit contents of Firebase
-                Iterator<String> it = DataProvider.productMap.keySet().iterator();
-                while (it.hasNext()){
-                }
-            }
-        });
-        Button DeleteBtn = (Button) findViewById(R.id.button2);
-        DeleteBtn.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View v) {
-                //todo Edit contents of Firebase
                 Iterator itr = DataProvider.productList.iterator();
                 while (itr.hasNext()){
                     DataProvider.deleteProduct(productId);
                 }
             }
         });
+        //todo remove image from this if firebase implemented and put in QR CODE if Want
+//        ImageView iv = (ImageView) findViewById(R.id.imageView);
+//        try {
+//            Bitmap bitmap = getBitmapFromAsset(product.getProductId());
+//            iv.setImageBitmap(bitmap);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
 
 
     }

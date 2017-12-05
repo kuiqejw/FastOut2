@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-//todo Substitute with firebase for this
 
 /**
  * Created by ongajong on 12/4/2017.
@@ -13,7 +12,7 @@ import java.util.Map;
 
 public class DataProvider {
     public static List<Product> productList = new ArrayList<>();
-    public static Map<String, Product> productMap = new HashMap<>();//map data objects with key of string and products
+    public static Map<String, Product> productMap = new HashMap<>();
     static{
 
         addProduct("shirt101",
@@ -23,7 +22,7 @@ public class DataProvider {
 
         addProduct("jacket101",
                 "Bamboo thermal ski coat",
-                "Youâ€™ll be the most environmentally conscious skier on the slopes - and the most stylish - wearing our fitted bamboo thermal ski coat, made from organic bamboo with recycled plastic down filling.",
+                "You will be the most environmentally conscious skier on the slopes - and the most stylish - wearing our fitted bamboo thermal ski coat, made from organic bamboo with recycled plastic down filling.",
                 128);
 
         addProduct("pants101",
@@ -103,7 +102,6 @@ public class DataProvider {
             }
         }
     }
-
     public static List<String> getProductNames() {
         List<String> list = new ArrayList<>();
         for (Product product : productList) {

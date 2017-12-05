@@ -39,7 +39,7 @@ public class ProductListAdapter extends ArrayAdapter<Product>{
         TextView priceText = (TextView) convertView.findViewById(R.id.priceText);
         priceText.setText(price);
 
-        ImageView iv = (ImageView) convertView.findViewById(R.id.imageView);
+        ImageView iv = convertView.findViewById(R.id.imageView);
         try {
             Bitmap bitmap = getBitmapFromAsset(product.getProductId());
             iv.setImageBitmap(bitmap);
@@ -47,7 +47,7 @@ public class ProductListAdapter extends ArrayAdapter<Product>{
             e.printStackTrace();
         }
         return convertView;
-        }
+    }
         private Bitmap getBitmapFromAsset(String productId) throws IOException {
             AssetManager assetManager = getContext().getAssets();
             InputStream stream = null;

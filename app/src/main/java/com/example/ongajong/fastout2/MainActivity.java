@@ -10,16 +10,12 @@ import android.widget.ListView;
 
 import java.util.List;
 
-import static android.os.Build.PRODUCT;
-
 public class MainActivity extends AppCompatActivity {
     private List<Product> products = DataProvider.productList;
     public static final String PRODUCT_ID = "PRODUCT_ID";
 
     private static final int DETAIL_REQUEST = 1111;
     public static final String RETURN_MESSAGE = "RETURN MESSAGE";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
