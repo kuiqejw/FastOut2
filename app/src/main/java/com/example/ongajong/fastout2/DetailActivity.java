@@ -32,8 +32,14 @@ public class DetailActivity extends AppCompatActivity {
         final TextView priceText = (TextView) findViewById(R.id.priceText);
         priceText.setText(price);
 
+        final Integer quantity = product.getQuantity();
+        final TextView quantityText = (TextView) findViewById(R.id.quantityText);
+        String quantText = quantity.toString();
+        quantityText.setText(quantText);
+
         TextView newpriceText = (TextView) findViewById(R.id.tv_NewPrice);
         final EditText ed_price = (EditText) findViewById(R.id.ed_price);
+        final EditText ed_quantity = (EditText) findViewById(R.id.ed_quantity);
         Button btn_delete = (Button) findViewById(R.id.delete_btn);
         btn_delete.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
@@ -54,10 +60,15 @@ public class DetailActivity extends AppCompatActivity {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef  = database.getReference("ProductList");
                 Double newPrice = Double.parseDouble(ed_price.getText().toString());
+
+                Integer newQuantity = Integer.parseInt(ed_quantity.getText().toString());
                     myRef.child(product.getName()).child("price").setValue(newPrice);
+                    myRef.child(product.getName()).child("quantity").setValue(newQuantity);
+
                 DataProvider.productList.remove(product);
                 DataProvider.productMap.remove(product);
-                Product item = new Product(product.getProductId(), product.getName(), newPrice);
+
+                Product item = new Product(product.getProductId(), product.getName(), newPrice,newQuantity);
                 DataProvider.productList.add(item);
                 DataProvider.productMap.put(product.getProductId(), item);
                 priceText.setText(newPrice.toString());
