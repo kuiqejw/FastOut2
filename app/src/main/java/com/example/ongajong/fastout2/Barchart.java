@@ -26,7 +26,6 @@ public class Barchart extends AppCompatActivity {
         BarChart chart = (BarChart) findViewById(R.id.chart);
 
         BarData data = new BarData(getXAxisValues(), getDataSet());
-        Log.i("Laura", "BigData has loaded");
         chart.setData(data);
         chart.setDescription("My Chart");
         chart.animateXY(2000, 2000);
