@@ -26,5 +26,12 @@ public class NewMain extends AppCompatActivity {
                 startActivity(new Intent(NewMain.this, DisplayEdit.class));
             }
         });
+        Button btn_barchart = (Button) findViewById(R.id.navi_barchart);
+        btn_barchart.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NewMain.this,Barchart.class));
+            }
+        });
     }
 }

@@ -11,18 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".NewMain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DisplayEdit"
+        <activity
+            android:name=".DisplayEdit"
             android:parentActivityName=".NewMain">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NewMain"/>
+                android:value=".NewMain" />
         </activity>
         <activity
             android:name=".DetailActivity"
@@ -31,11 +32,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".DisplayEdit" />
         </activity>
-        <activity android:name=".AddProduct"
+        <activity
+            android:name=".AddProduct"
             android:parentActivityName=".NewMain">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NewMain"/>
+                android:value=".NewMain" />
+        </activity>
+        <activity
+            android:name=".Barchart"
+            android:parentActivityName=".NewMain">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NewMain" />
         </activity>
     </application>
 
