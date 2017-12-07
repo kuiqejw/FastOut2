@@ -21,14 +21,7 @@
         android:gravity="center"
         android:text="$28.00"
         android:textSize="20sp" />
-    <TextView
-        android:id="@+id/quantityText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/priceText"
-        android:gravity="center"
-        android:text="3"
-        android:textSize="20sp" />
+
 
     <Button
         android:id="@+id/delete_btn"
@@ -77,31 +70,6 @@
         android:layout_marginLeft="11dp"
         android:layout_marginStart="11dp"
         android:text="New Price"
-        android:textSize="20sp" />
-    <EditText
-        android:id="@+id/ed_quantity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/delete_btn"
-        android:layout_alignRight="@+id/delete_btn"
-        android:layout_below="@+id/ed_price"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="number" />
-
-    <TextView
-        android:id="@+id/tv_NewQuantity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ed_quantity"
-        android:layout_alignBottom="@+id/ed_quantity"
-        android:layout_alignLeft="@+id/edit_btn"
-        android:layout_alignStart="@+id/edit_btn"
-        android:layout_marginLeft="11dp"
-        android:layout_marginStart="11dp"
-        android:text="New Quantity"
         android:textSize="20sp" />
 
 
